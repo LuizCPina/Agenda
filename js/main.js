@@ -8,11 +8,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const corpoPagina = document.body;  
 
         corpoPagina.addEventListener('click', () => {
-            window.location.href = 'tasks.html';
+            window.location.href = 'app/tasks.html';
         });
     }
+});
 
-    const sider = document.getElementById('mySider');
+document.addEventListener('DOMContentLoaded', () => {
+ const sider = document.getElementById('mySider');
     const toggleButton = document.getElementById('toggleButton');
 
     toggleButton.addEventListener('click', (e) => {
@@ -20,10 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
         sider.classList.toggle('collapsed');
 
         if (sider.classList.contains('collapsed')) {
-            toggleButton.textContent = '▶'; 
+            toggleButton.textContent = '☰'; 
         } else {
             toggleButton.textContent = '☰'; 
         }
-    });
-
+    });   
 });

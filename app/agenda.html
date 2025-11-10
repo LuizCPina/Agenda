@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/agenda.css">
+    <link rel="stylesheet" href="/css/tasks.css">
+</head>
+
+<div class="layout-container">
+
+    <!-- sider -->
+    <aside class="layout-sider" id="mySider">
+        <div class="demo-logo-vertical"></div>
+        <ul class="menu menu-dark" id="myMenu">
+            <li class="menu-item" id="tasksButton">
+                <span>✅</span>
+                <span class="nav-label">Tasks</span>
+            </li>
+
+            <li class="menu-item" id="agendaButton">
+                <span>🗓️</span>
+                <span class="nav-label">Agenda</span>
+            </li>
+
+            <li class="menu-item" id="configButton">
+                <span>⚙️</span>
+                <span class="nav-label">Configurações</span>
+            </li> 
+            
+            </ul>
+    </aside>
+    
+    <section class="layout-main">
+
+        <header class="layout-header">
+            <button id="toggleButton" type="button" >☰</button>
+            <h1 class="header-placeholder">INATEL</h1>
+            
+        </header>
+
+        <main class="layout-content">
+           <div class="calendar-container">
+                <div class="calendar-header">
+                    <button id="prevMonth" class="btn-primary">◀</button>
+        
+                    <h2 id="currentMonthYear">Novembro 2025</h2>
+        
+                    <button id="nextMonth" class="btn-primary">▶</button>
+                </div>
+
+                <div class="calendar-grid">
+                    <div class="day-header">Dom</div>
+                    <div class="day-header">Seg</div>
+                    <div class="day-header">Ter</div>
+                    <div class="day-header">Qua</div>
+                    <div class="day-header">Qui</div>
+                    <div class="day-header">Sex</div>
+                    <div class="day-header">Sáb</div>
+
+                    <div id="calendarDays" class="days-container">
+                    </div>
+                </div>
+            </div>
+        </main>
+    </section>
+    
+</div>
+
+<script src="/js/main.js"></script>
+<script src="/js/navegacao.js"></script>
+<script src="/js/agenda.js"></script>
+
+</html>

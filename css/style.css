@@ -5,35 +5,17 @@
     
 }
 
-.header-container {
-    background-color: #003366;  
-    padding: 20px 0;           
-    margin: 0;               
-    width: 100%;              
-    display: block;           
-    position: relative;      
-}
-
-.body-container{
-    display: flex; 
-    min-height: 100vh; 
-    justify-content: center; 
-    align-items: center;
-}
-
 main, .main-content {
     padding: 20px;
     padding-bottom: 80px; 
 }
 
-
-.ant-layout-container {
+.layout-container {
     display: flex;
     min-height: 100vh;
 }
 
-
-.ant-layout-sider {
+.layout-sider {
     width: 200px; 
     background-color: #000; 
     color: white;
@@ -42,23 +24,23 @@ main, .main-content {
     overflow-x: hidden; 
 }
 
-.ant-layout-sider.collapsed {
+.layout-sider.collapsed {
     width: 64px; 
 }
 
-.ant-layout-main {
+.layout-main {
     display: flex; 
     flex-direction: column;
     flex-grow: 1;
 }
 
-.ant-layout-content {
+.layout-content {
     flex-grow: 1; 
     background-color: #1f1f1f; 
     color: #fff;
 }
 
-.ant-layout-header {
+.layout-header {
     height: 64px;
     background-color: #003366; 
     color: #fff;
@@ -67,7 +49,7 @@ main, .main-content {
     align-items: center;
 }
 
-.ant-layout-header h1 {
+.layout-header h1 {
     margin: auto; 
     text-align: center;
 }
@@ -78,21 +60,22 @@ main, .main-content {
 }
 
 
-.ant-menu {
+.menu {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.ant-menu-item {
-    height: 40px;
+.menu-item {
+    height: 150px;
+    font-size: 22px;
     padding: 0 24px;
     display: flex;
     align-items: center;
     cursor: pointer;
 }
 
-.ant-layout-sider.collapsed .nav-label {
+.layout-sider.collapsed .nav-label {
     display: none;
 }
 

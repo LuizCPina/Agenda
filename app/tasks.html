@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/tasks.css">
+</head>
+
+<div class="layout-container">
+
+    <!-- sider -->
+    <aside class="layout-sider" id="mySider">
+        <div class="demo-logo-vertical"></div>
+        <ul class="menu menu-dark" id="myMenu">
+            <li class="menu-item" id="tasksButton">
+                <span>✅</span>
+                <span class="nav-label">Tasks</span>
+            </li>
+
+            <li class="menu-item" id="agendaButton">
+                <span>🗓️</span>
+                <span class="nav-label">Agenda</span>
+            </li>
+
+            <li class="menu-item" id="configButton">
+                <span>⚙️</span>
+                <span class="nav-label">Configurações</span>
+            </li> 
+            
+            </ul>
+    </aside>
+    
+    <section class="layout-main">
+
+        <header class="layout-header">
+            <button id="toggleButton" type="button" >☰</button>
+            <h1 class="header-placeholder">INATEL</h1>
+            
+        </header>
+
+        <main class="layout-content">
+           <div class="add-task-container">
+            
+                <h2>Agendar Nova Tarefa</h2>
+                <form id="taskForm" class="app-form">
+
+                <div class="form-group">
+                    <label for="taskInput">Descrição da Tarefa</label>
+                    <input type="text" id="taskInput" placeholder="Ex: Reunião com o cliente X" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="taskDate">Data</label>
+                    <input type="date" id="taskDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="taskTime">Hora (Opcional)</label>
+                    <input type="time" id="taskTime">
+                </div>
+
+                <button type="submit" class="btn-primary">Agendar</button> 
+                </form>
+            </div>
+
+            <ul id="taskList">
+            </ul>
+        </main>
+    </section>
+    
+</div>
+
+<script src="/js/main.js"></script>
+<script src="/js/tasks.js"></script>
+<script src="/js/navegacao.js"></script>
+
+</html>
