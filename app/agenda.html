@@ -8,69 +8,80 @@
     <link rel="stylesheet" href="/css/agenda.css">
     <link rel="stylesheet" href="/css/tasks.css">
 </head>
+<body>
+    <div class="layout-container">
 
-<div class="layout-container">
+        <!-- sider -->
+        <aside class="layout-sider" id="mySider">
+            <div class="demo-logo-vertical"></div>
+            <ul class="menu menu-dark" id="myMenu">
+                <li class="menu-item" id="tasksButton">
+                    <span>✅</span>
+                    <span class="nav-label">Tasks</span>
+                </li>
 
-    <!-- sider -->
-    <aside class="layout-sider" id="mySider">
-        <div class="demo-logo-vertical"></div>
-        <ul class="menu menu-dark" id="myMenu">
-            <li class="menu-item" id="tasksButton">
-                <span>✅</span>
-                <span class="nav-label">Tasks</span>
-            </li>
+                <li class="menu-item" id="agendaButton">
+                    <span>🗓️</span>
+                    <span class="nav-label">Agenda</span>
+                </li>
 
-            <li class="menu-item" id="agendaButton">
-                <span>🗓️</span>
-                <span class="nav-label">Agenda</span>
-            </li>
-
-            <li class="menu-item" id="configButton">
-                <span>⚙️</span>
-                <span class="nav-label">Configurações</span>
-            </li> 
-            
-            </ul>
-    </aside>
-    
-    <section class="layout-main">
-
-        <header class="layout-header">
-            <button id="toggleButton" type="button" >☰</button>
-            <h1 class="header-placeholder">INATEL</h1>
-            
-        </header>
-
-        <main class="layout-content">
-           <div class="calendar-container">
-                <div class="calendar-header">
-                    <button id="prevMonth" class="btn-primary">◀</button>
+                <li class="menu-item" id="configButton">
+                    <span>⚙️</span>
+                    <span class="nav-label">Configurações</span>
+                </li> 
+                
+                </ul>
+        </aside>
         
-                    <h2 id="currentMonthYear">Novembro 2025</h2>
-        
-                    <button id="nextMonth" class="btn-primary">▶</button>
-                </div>
+        <section class="layout-main">
 
-                <div class="calendar-grid">
-                    <div class="day-header">Dom</div>
-                    <div class="day-header">Seg</div>
-                    <div class="day-header">Ter</div>
-                    <div class="day-header">Qua</div>
-                    <div class="day-header">Qui</div>
-                    <div class="day-header">Sex</div>
-                    <div class="day-header">Sáb</div>
+            <header class="layout-header">
+                <button id="toggleButton" type="button" >☰</button>
+                <h1 class="header-placeholder">INATEL</h1>
+                
+            </header>
 
-                    <div id="calendarDays" class="days-container">
+            <main class="layout-content">
+                <div class="calendar-container">
+                    <div class="calendar-header">
+                        <button id="prevMonth" class="btn-primary">◀</button>
+            
+                        <h2 id="currentMonthYear">Novembro 2025</h2>
+            
+                        <button id="nextMonth" class="btn-primary">▶</button>
+                    </div>
+
+                    <div class="calendar-grid">
+                        <div class="day-header">Dom</div>
+                        <div class="day-header">Seg</div>
+                        <div class="day-header">Ter</div>
+                        <div class="day-header">Qua</div>
+                        <div class="day-header">Qui</div>
+                        <div class="day-header">Sex</div>
+                        <div class="day-header">Sáb</div>
+
+                        <div id="calendarDays">
+                        </div>
                     </div>
                 </div>
-            </div>
-        </main>
-    </section>
+            </main>
+        </section>
+        
+    </div>
     
-</div>
+    <div id="taskModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalDateTitle"></h3>
+                <button class="close-btn" id="closeModalBtn">&times;</button>
+            </div>
+            <div id="modalTaskList" class="modal-body"></div>
+        </div>
+    </div>
 
-<script src="/js/main.js"></script>
-<script src="/js/navegacao.js"></script>
-<script src="/js/agenda.js"></script>
-
+    <script src="/js/main.js"></script>
+    <script src="/js/navegacao.js"></script>
+    <script src="/js/tasks.js"></script>
+    <script src="/js/agenda.js"></script>
+</body>
 </html>

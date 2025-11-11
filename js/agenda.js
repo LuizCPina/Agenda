@@ -6,6 +6,8 @@ const monthNames = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
 function renderCalendar() {
     const monthYearDisplay = document.getElementById('currentMonthYear');
     const daysContainer = document.getElementById('calendarDays');
+
+    const todasAsTarefas = carregarTarefas();
     
     const today = new Date();
     const year = currentMonth.getFullYear();
@@ -34,6 +36,22 @@ function renderCalendar() {
         if (day === today.getDate() && month === today.getMonth() && year === today.getFullYear()) {
             dayDiv.classList.add('current-day');
         }
+        const dateString = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+
+        const tarefasDoDia = todasAsTarefas.filter(tarefa => tarefa.data === dateString);
+        if (tarefasDoDia.length > 0) {
+            adicionarTarefasAoDia(dayDiv, tarefasDoDia);
+        }
+
+        dayDiv.addEventListener('click', () => {
+            const todasTarefas = carregarTarefas(); 
+            const tarefasDoDia = todasTarefas.filter(tarefa => tarefa.data === dateString);
+            
+            const dayText = day;
+            const monthText = monthNames[month];
+            
+            openDayDetails(dateString, dayText, monthText, tarefasDoDia);
+        });
 
         daysContainer.appendChild(dayDiv);
     }
@@ -48,6 +66,121 @@ function navigateMonth(direction) {
     }
     renderCalendar();
 }
+
+function adicionarTarefasAoDia(dayDiv, tarefas) {
+    
+    dayDiv.classList.add('has-tasks');
+    
+    const taskListDiv = document.createElement('div');
+    taskListDiv.classList.add('day-task-list');
+    
+    tarefas.slice(0, 2).forEach(tarefa => {
+        const taskElement = document.createElement('div');
+        taskElement.classList.add('calendar-task-preview');
+        
+        taskElement.innerHTML = `
+            <span class="task-dot ${tarefa.completa ? 'completed-dot' : 'pending-dot'}"></span>
+            ${tarefa.texto.substring(0, 15)}...
+        `;
+        
+        taskListDiv.appendChild(taskElement);
+    });
+
+    if (tarefas.length > 2) {
+        const moreTasks = document.createElement('div');
+        moreTasks.classList.add('more-tasks');
+        moreTasks.textContent = `+${tarefas.length - 2} mais...`;
+        taskListDiv.appendChild(moreTasks);
+    }
+
+    dayDiv.appendChild(taskListDiv);
+}
+
+const taskModal = document.getElementById('taskModal');
+const modalDateTitle = document.getElementById('modalDateTitle');
+const modalTaskList = document.getElementById('modalTaskList');
+const closeModalBtn = document.getElementById('closeModalBtn');
+
+function openDayDetails(dateString, dayText, monthText, tarefas) {
+  
+    modalDateTitle.textContent = `Tarefas para ${dayText} de ${monthText}`;
+    
+  
+    modalTaskList.innerHTML = '';
+
+    if (tarefas.length === 0) {
+        modalTaskList.innerHTML = '<p style="text-align: center; color: #777;">Nenhuma tarefa agendada para este dia.</p>';
+    } else {
+        
+        tarefas.forEach(tarefa => {
+            const taskItem = document.createElement('div');
+            taskItem.classList.add('modal-task-item');
+            taskItem.innerHTML = `
+                <div>
+                    <span class="task-time-text">${tarefa.hora || ''}</span> 
+                    <span class="${tarefa.completa ? 'task-completed-text' : ''}">${tarefa.texto}</span>
+                </div>
+                <div>
+                    <button class="app-btn btn-small btn-toggle" data-id="${tarefa.id}" 
+                            style="background-color: ${tarefa.completa ? '#52c41a' : '#faad14'}; color: white;">
+                        ${tarefa.completa ? 'Concluída' : 'Pendente'}
+                    </button>
+                    <button class="app-btn btn-small btn-delete" data-id="${tarefa.id}" 
+                            style="background-color: #f5222d; color: white;">
+                        🗑️
+                    </button>
+                </div>
+            `;
+            modalTaskList.appendChild(taskItem);
+        });
+
+        
+        modalTaskList.querySelectorAll('.btn-toggle').forEach(btn => {
+            btn.addEventListener('click', (e) => handleTaskAction(e.target.dataset.id, 'toggle', dateString));
+        });
+        modalTaskList.querySelectorAll('.btn-delete').forEach(btn => {
+            btn.addEventListener('click', (e) => handleTaskAction(e.target.dataset.id, 'delete', dateString));
+        });
+    }
+
+   
+    taskModal.classList.add('active');
+}
+
+
+function handleTaskAction(taskId, action, dateString) {
+    const id = Number(taskId);
+    if (action === 'toggle' && typeof toggleTarefa === 'function') {
+        toggleTarefa(id);
+    } else if (action === 'delete' && typeof removerTarefa === 'function') {
+        removerTarefa(id);
+    }
+    
+    
+    renderCalendar();
+    
+    
+    const tarefasAtualizadas = carregarTarefas().filter(t => t.data === dateString);
+    const [year, monthIndex, day] = dateString.split('-').map(Number);
+    
+  
+    const dayText = day;
+    const monthText = monthNames[monthIndex - 1];
+
+    openDayDetails(dateString, dayText, monthText, tarefasAtualizadas);
+}
+
+
+closeModalBtn.addEventListener('click', () => {
+    taskModal.classList.remove('active');
+});
+
+
+taskModal.addEventListener('click', (e) => {
+    if (e.target === taskModal) {
+        taskModal.classList.remove('active');
+    }
+});
 
 
 document.addEventListener('DOMContentLoaded', () => {
