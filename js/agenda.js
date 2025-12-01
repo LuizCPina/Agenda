@@ -248,24 +248,19 @@ function openDayDetails(dateString, dayText, monthText, tarefas) {
 
 function handleTaskAction(taskId, action, dateString) {
     const id = Number(taskId);
-    let shouldUpdate = false; 
 
     // Executa a ação e salva no localStorage
     if (action === 'delete' && typeof removerTarefa === 'function') {
         if (confirm('Tem certeza que deseja remover esta tarefa?')) {
             removerTarefa(id);
-            shouldUpdate = true;
+            window.location.reload(); 
         } else {
             return;
         }
     } 
     else if (action === 'toggle' && typeof toggleTarefa === 'function') {
         toggleTarefa(id);
-        shouldUpdate = true;
-    }
-    
-    if (shouldUpdate) {
-    window.location.reload(); 
+        window.location.reload(); 
     }
 
     // Atualiza o calendário principal
