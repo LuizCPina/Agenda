@@ -11,19 +11,19 @@ function handleNavigation(targetPage) {
 if (tasksButton) {
     tasksButton.addEventListener('click', () => {
       
-        handleNavigation('/Agenda/app/tasks.html?'); 
+        handleNavigation('app/tasks.html'); 
     });
 }
 
 if (agendaButton) {
     agendaButton.addEventListener('click', () => {
-        handleNavigation('/Agenda/app/agenda.html?'); 
+        handleNavigation('app/agenda.html'); 
     });
 }
 
 
 if (configButton) {
     configButton.addEventListener('click', () => {
-        handleNavigation('/Agenda/app/configuracoes.html?'); 
+        handleNavigation('configuracoes.html'); 
     });
 }
