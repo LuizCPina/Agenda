@@ -253,14 +253,18 @@ function handleTaskAction(taskId, action, dateString) {
     if (action === 'delete' && typeof removerTarefa === 'function') {
         if (confirm('Tem certeza que deseja remover esta tarefa?')) {
             removerTarefa(id);
-            window.location.reload(); 
+            setTimeout(() => {
+                window.location.reload();
+            }, 100);
         } else {
             return;
         }
     } 
     else if (action === 'toggle' && typeof toggleTarefa === 'function') {
         toggleTarefa(id);
-        window.location.reload(); 
+        setTimeout(() => {
+            window.location.reload();
+        }, 100); 
     }
 
     // Atualiza o calendário principal
