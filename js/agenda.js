@@ -103,10 +103,6 @@ function renderCalendar() {
         const dayDiv = document.createElement('div');
         dayDiv.classList.add('calendar-day');
         
-        // NOVO: Adiciona a abreviação do dia da semana (Se for o passo que você escolheu)
-        // const dayOfWeekName = dayNames[currentDate.getDay()];
-        // dayDiv.innerHTML = `<span class="day-of-week">${dayOfWeekName}</span><span class="day-number">${day}</span>`;
-        // Ou o formato simples que você já tinha:
         dayDiv.textContent = day;
         
         // Estilo e Classes
@@ -162,7 +158,6 @@ function navigatePeriod(direction) {
 }
 
 
-// --- Funções Auxiliares (mantidas como você enviou) ---
 
 function adicionarTarefasAoDia(dayDiv, tarefas) {
     dayDiv.classList.add('has-tasks');
@@ -192,7 +187,6 @@ function adicionarTarefasAoDia(dayDiv, tarefas) {
     dayDiv.appendChild(taskListDiv);
 }
 
-// --- Funções do Modal (Mantidas como você enviou) ---
 
 function openDayDetails(dateString, dayText, monthText, tarefas) {
     
@@ -270,7 +264,9 @@ function handleTaskAction(taskId, action, dateString) {
         shouldUpdate = true;
     }
     
-    if (!shouldUpdate) return;
+    if (shouldUpdate) {
+    renderizarTarefas(); 
+    }
 
     // Atualiza o calendário principal
     renderCalendar();
@@ -294,7 +290,6 @@ function handleTaskAction(taskId, action, dateString) {
     }, 50); 
 }
 
-
 // --- Inicialização (Bloco DOMContentLoaded) ---
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -316,7 +311,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
-    //  NOVO: Listeners para os botões de Visualização
     document.querySelectorAll('.btn-view').forEach(button => {
         button.addEventListener('click', (e) => {
             const newView = e.target.dataset.view;
@@ -331,8 +325,6 @@ document.addEventListener('DOMContentLoaded', () => {
             renderCalendar();
         });
     });
-
-    //  ATUALIZADO: Listeners para navegação
     document.getElementById('prevMonth').addEventListener('click', () => navigatePeriod('prev'));
     document.getElementById('nextMonth').addEventListener('click', () => navigatePeriod('next'));
     
