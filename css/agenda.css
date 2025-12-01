@@ -230,3 +230,112 @@ body.theme-light .modal-header {
 body.theme-light .modal-task-item {
     border-bottom: 1px dotted #e0e0e0;
 }
+
+.view-options {
+    display: flex;
+    justify-content: flex-start; /* Alinha à esquerda */
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.btn-view {
+    padding: 8px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: transparent;
+    color: var(--main-text-color);
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    font-weight: 500;
+}
+
+.btn-view:hover {
+    background-color: var(--border-color);
+}
+
+/* Estado Ativo (Selecionado) */
+.btn-view.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* Tema Escuro: Ajuste de cor para os botões desativados */
+body.theme-dark .btn-view {
+    border-color: #555;
+    color: #ccc;
+}
+
+body.theme-dark .btn-view:hover {
+    background-color: #404040;
+}
+
+/* ------------------------------------------------ */
+/* --- AJUSTE DOS BOTÕES DE NAVEGAÇÃO (SETAS) --- */
+/* ------------------------------------------------ */
+
+.calendar-header .btn-primary {
+    /* Torna o botão menor e redondo/circular */
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    padding: 0;
+    line-height: 38px; /* Centraliza o texto/ícone verticalmente */
+    text-align: center;
+    font-size: 1.2em; /* Tamanho da seta */
+    border-radius: 50%; /* Faz o botão ser circular */
+    
+    /* Sobrescreve cores do btn-primary */
+    background-color: #f0f0f0; 
+    color: #003366;
+    border: 1px solid #e0e0e0;
+    box-shadow: none; /* Remove a sombra padrão para um visual mais limpo */
+}
+
+.calendar-header .btn-primary:hover {
+    background-color: #e0f7fa; /* Cor de hover suave */
+    border-color: #1890ff;
+}
+
+/* Garante o estilo correto no tema escuro, se aplicável */
+body.theme-dark .calendar-header .btn-primary {
+    background-color: #003366; 
+    color: #eee;
+    border-color: #555;
+}
+body.theme-dark .calendar-header .btn-primary:hover {
+    background-color: #444; 
+}
+
+.calendar-grid.view-14days .calendar-day {
+    min-height: 120px; /* Aumenta a altura mínima */
+}
+
+/* No modo de 4 dias, que é a visualização mais longa verticalmente, maximizamos a altura */
+.calendar-grid.view-4days .calendar-day {
+    min-height: 180px; /* Altura máxima para melhor visualização */
+}
+
+/* Opcional: Ajuste o espaço da lista de tarefas para caber mais */
+.calendar-grid.view-14days .day-task-list,
+.calendar-grid.view-4days .day-task-list {
+     max-height: 100px; /* Permite que a lista de prévias cresça mais */
+}
+.btn-add-task-modal {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 1em;
+    font-weight: bold;
+    /* Usa a cor primária para destaque */
+    background-color: var(--primary-color, #1890ff); 
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-add-task-modal:hover {
+    background-color: #096dd9; /* Um tom mais escuro no hover */
+}

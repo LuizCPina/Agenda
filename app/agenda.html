@@ -43,10 +43,15 @@
 
             <main class="layout-content">
                 <div class="calendar-container">
+                    <div class="view-options">
+                        <button id="viewMonth" class="btn-view active" data-view="month">Mês</button>
+                        <button id="view14Days" class="btn-view" data-view="14days">14 Dias</button>
+                        <button id="view4Days" class="btn-view" data-view="4days">4 Dias</button>
+                    </div>
                     <div class="calendar-header">
                         <button id="prevMonth" class="btn-primary">◀</button>
             
-                        <h2 id="currentMonthYear">Novembro 2025</h2>
+                        <h2 id="currentMonthYear"></h2>
             
                         <button id="nextMonth" class="btn-primary">▶</button>
                     </div>

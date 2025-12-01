@@ -1,0 +1,51 @@
+.index-landing-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    text-align: center;
+}
+
+.landing-content-card {
+    max-width: 500px;
+    padding: 40px;
+    border-radius: 12px;
+    
+    background-color: rgba(0, 0, 0, 0.4); 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    color: var(--main-text-color, #fff); 
+}
+
+
+.landing-content-card h1 {
+    font-size: 3em;
+    color: var(--primary-color, #003366); 
+    margin-bottom: 5px;
+}
+
+.landing-content-card h2 {
+    font-size: 1.5em;
+    color: #ccc;
+    margin-bottom: 25px;
+    font-weight: 400;
+}
+
+.landing-content-card p {
+    font-size: 1.1em;
+    margin-bottom: 40px;
+}
+
+.start-button {
+    width: 100%;
+    max-width: 300px;
+    font-size: 1.2em;
+    padding: 15px 30px;
+    pointer-events: none; 
+}
+
+.click-instruction {
+    font-size: 0.85em;
+    color: #999;
+    margin-top: 15px;
+}

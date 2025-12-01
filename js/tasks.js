@@ -186,6 +186,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const taskInput = document.getElementById('taskInput');
     const taskDateInput = document.getElementById('taskDate'); 
     const taskTimeInput = document.getElementById('taskTime'); 
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const dateParam = urlParams.get('date'); // Recebe a data no formato YYYY-MM-DD
+
+    if (dateParam && taskDateInput) {
+        
+        // --- CORREÇÃO: CONVERSÃO DE FORMATO ---
+        const parts = dateParam.split('-'); // [YYYY, MM, DD]
+        
+        if (parts.length === 3) {
+            // Reordena e formata para DD/MM/AAAA
+            const formattedDate = `${parts[2]}/${parts[1]}/${parts[0]}`; 
+            taskDateInput.value = formattedDate;
+        }
+    }
     
     // 2. Aplica a máscara de data e hora
     if (taskDateInput) {

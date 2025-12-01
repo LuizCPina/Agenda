@@ -42,14 +42,4 @@ document.addEventListener('DOMContentLoaded', () => {
             salvarTema(e.target.checked);
         });
     }
-
-    // Ocultar e mostrar o sider (pode ser movido para main.js se preferir)
-    const sider = document.getElementById('mySider');
-    const toggleButton = document.getElementById('toggleButton');
-
-    if (toggleButton && sider) {
-        toggleButton.addEventListener('click', () => {
-            sider.classList.toggle('collapsed');
-        });
-    }
 });
