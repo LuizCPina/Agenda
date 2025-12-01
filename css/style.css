@@ -47,6 +47,7 @@ main, .main-content {
     padding: 0 16px;
     display: flex;
     align-items: center;
+    align-content: center;
 }
 
 .layout-header h1 {

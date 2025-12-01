@@ -199,7 +199,13 @@ function openDayDetails(dateString, dayText, monthText, tarefas) {
     modalDateTitle.textContent = `Tarefas para ${dayText} de ${monthText}`;
     modalTaskList.innerHTML = ''; 
 
+    const oldAddButton = document.getElementById('addTaskModalButton');
+    if (oldAddButton) {
+        oldAddButton.remove();
+    }
+
     const addButton = document.createElement('button');
+    addButton.id = 'addTaskModalButton';
     addButton.classList.add('app-btn', 'btn-primary', 'btn-add-task-modal');
     addButton.textContent = `➕ Adicionar Tarefa para ${dayText}/${monthText}`;
     

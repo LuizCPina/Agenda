@@ -206,7 +206,7 @@ body.theme-light .calendar-day:hover {
 }
 
 body.theme-light .other-month {
-    background-color: #f7ff; /* Fundo mais claro para dias inativos */
+    background-color: #003366;
     color: #ccc; /* Cor cinza muito clara */
 }
 
@@ -263,11 +263,18 @@ body.theme-light .modal-task-item {
 /* Tema Escuro: Ajuste de cor para os botões desativados */
 body.theme-dark .btn-view {
     border-color: #555;
-    color: #ccc;
+    background-color: #003366;
+    color: #ffffff;
 }
 
 body.theme-dark .btn-view:hover {
     background-color: #404040;
+}
+
+body.theme-light .btn-view {
+    border-color: #555;
+    background-color: #003366;
+    color: #ffffff;
 }
 
 /* ------------------------------------------------ */
@@ -327,7 +334,6 @@ body.theme-dark .calendar-header .btn-primary:hover {
     padding: 10px;
     font-size: 1em;
     font-weight: bold;
-    /* Usa a cor primária para destaque */
     background-color: var(--primary-color, #1890ff); 
     color: white;
     border: none;
