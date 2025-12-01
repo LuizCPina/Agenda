@@ -2,9 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 1. Lógica de Redirecionamento do Index
     const paginaAtual = window.location.pathname;
-    const paginaDesejada = '/Agenda/.html';
+    const paginaRaiz = '/Agenda/';
 
-    if (paginaAtual.endsWith(paginaDesejada)) {
+    if (paginaAtual.endsWith(paginaRaiz) || paginaAtual === '/Agenda') {
         const corpoPagina = document.body;  
 
         corpoPagina.addEventListener('click', () => {
