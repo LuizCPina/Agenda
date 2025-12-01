@@ -265,7 +265,7 @@ function handleTaskAction(taskId, action, dateString) {
     }
     
     if (shouldUpdate) {
-    renderizarTarefas(); 
+    window.location.reload(); 
     }
 
     // Atualiza o calendário principal
