@@ -183,3 +183,50 @@
     color: #1890ff;
     margin-right: 10px;
 }
+
+body.theme-light .calendar-container {
+    background-color: #fff; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Sombra mais leve */
+}
+
+body.theme-light #currentMonthYear {
+    color: #333;
+}
+body.theme-light .day-header {
+    color: #333; /* Headers dos dias da semana escuros */
+}
+
+body.theme-light .calendar-day {
+    background-color: #ffffff; /* Fundo branco puro */
+    color: #333; /* Texto do dia escuro */
+    border: 1px solid #f0f0f0; /* Borda mais clara */
+}
+body.theme-light .calendar-day:hover {
+    background-color: #fafafa; /* Hover muito sutil */
+}
+
+body.theme-light .other-month {
+    background-color: #f7ff; /* Fundo mais claro para dias inativos */
+    color: #ccc; /* Cor cinza muito clara */
+}
+
+
+body.theme-light .calendar-day.has-tasks {
+    background-color: #fff7e6; /* Fundo amarelo/laranja muito suave */
+    border-color: #ffc53d; /* Borda amarela/laranja */
+}
+body.theme-light .day-task-list {
+    color: #333;
+}
+
+body.theme-light .modal-content {
+    background-color: #ffffff; /* Fundo do modal branco */
+}
+
+body.theme-light .modal-header {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+body.theme-light .modal-task-item {
+    border-bottom: 1px dotted #e0e0e0;
+}

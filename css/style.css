@@ -96,5 +96,38 @@ main, .main-content {
     background-color: rgba(255, 255, 255, 0.288); 
 }
 
+body.theme-light {
+    background-color: #f0f2f5; /* Background mais suave */
+    color: #333;
+}
 
+body.theme-light .layout-content {
+    background-color: #f0f2f5;
+    color: #333;
+}
 
+body.theme-light .layout-sider {
+    background-color: #ffffff; /* Sider branco */
+    color: #555; /* Texto cinza escuro */
+    border-right: 1px solid #e8e8e8;
+}
+
+body.theme-light .layout-header {
+    background-color: #ffffff; 
+    color: #003366; /* Cor principal de cabeçalho */
+    border-bottom: 1px solid #e8e8e8;
+}
+body.theme-light .layout-header h1 {
+    color: #003366;
+}
+
+body.theme-light .menu-dark {
+    color: #555; 
+}
+body.theme-light .menu-item {
+    color: #555;
+}
+body.theme-light .menu-item:hover {
+    background-color: #e6f7ff; /* Hover azul claro suave */
+    color: #1890ff; /* Texto do hover em azul principal */
+}

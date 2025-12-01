@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/config.css">
+    
+    </head>
+<body class="theme-dark">
+    <div class="layout-container">
+
+        <aside class="layout-sider" id="mySider">
+            <div class="demo-logo-vertical"></div>
+            <ul class="menu menu-dark" id="myMenu">
+                <li class="menu-item" id="tasksButton">
+                    <span>✅</span>
+                    <span class="nav-label">Tasks</span>
+                </li>
+                <li class="menu-item" id="agendaButton">
+                    <span>🗓️</span>
+                    <span class="nav-label">Agenda</span>
+                </li>
+                <li class="menu-item" id="configButton">
+                    <span>⚙️</span>
+                    <span class="nav-label">Configurações</span>
+                </li> 
+            </ul>
+        </aside>
+        
+        <section class="layout-main">
+
+            <header class="layout-header">
+                <button id="toggleButton" type="button" >☰</button>
+                <h1 class="header-placeholder">Configurações</h1>
+            </header>
+
+            <main class="layout-content">
+                <div class="settings-container">
+                    <h2>Configurações do Tema</h2>
+                    
+                    <div class="setting-item">
+                        <label for="themeToggle" class="theme-label">
+                            Modo Escuro
+                            <span class="theme-description"></span>
+                        </label>
+                        
+                        <label class="switch-container">
+                            <input type="checkbox" id="themeToggle" class="toggle-switch">
+                            <span class="slider round"></span>
+                        </label>
+                        
+                        <label for="themeToggle" class="theme-label">
+                            Modo Claro
+                        </label>
+                    </div>
+
+                </div>
+            </main>
+        </section>
+        
+    </div>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/navegacao.js"></script>
+    <script src="/js/configuracoes.js"></script> 
+    </body>
+</html>

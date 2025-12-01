@@ -1,0 +1,96 @@
+.settings-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: var(--main-bg-color); /* Usaremos variáveis CSS */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.setting-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.theme-label {
+    font-weight: 500;
+    margin: 0 15px;
+}
+
+.theme-description {
+    font-size: 0.85em;
+    color: #999;
+}
+
+
+body {
+    /* Tema Escuro Padrão */
+    --main-text-color: #fff;
+    --main-bg-color: #1f1f1f;
+    --border-color: #303030;
+    --primary-color: #1890ff;
+}
+
+body.theme-light {
+    /* Tema Claro */
+    --main-text-color: #333;
+    --main-bg-color: #f0f2f5;
+    --border-color: #e8e8e8;
+}
+
+
+.switch-container {
+    position: relative;
+    display: inline-block;
+    width: 60px; /* Largura total */
+    height: 34px; /* Altura total */
+    margin: 0 10px;
+}
+
+
+.switch-container input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc; /* Cor de fundo quando desligado */
+    transition: 0.4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+}
+
+input:checked + .slider {
+    background-color: var(--primary-color); /* Cor de fundo quando ligado (azul) */
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
