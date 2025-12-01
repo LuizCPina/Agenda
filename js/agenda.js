@@ -210,7 +210,7 @@ function openDayDetails(dateString, dayText, monthText, tarefas) {
     addButton.textContent = `➕ Adicionar Tarefa para ${dayText}/${monthText}`;
     
     addButton.onclick = () => {
-        window.location.href = `/app/tasks.html?date=${dateString}`;
+        window.location.href = `tasks.html?date=${dateString}`;
     };
 
     modalTaskList.insertAdjacentElement('beforebegin', addButton);
