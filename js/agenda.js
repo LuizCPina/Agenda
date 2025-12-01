@@ -193,20 +193,24 @@ function openDayDetails(dateString, dayText, monthText, tarefas) {
     modalDateTitle.textContent = `Tarefas para ${dayText} de ${monthText}`;
     modalTaskList.innerHTML = ''; 
 
+    // Remove o botão anterior para evitar duplicatas
     const oldAddButton = document.getElementById('addTaskModalButton');
     if (oldAddButton) {
         oldAddButton.remove();
     }
 
+    // Cria o botão de Adicionar Tarefa
     const addButton = document.createElement('button');
     addButton.id = 'addTaskModalButton';
     addButton.classList.add('app-btn', 'btn-primary', 'btn-add-task-modal');
     addButton.textContent = `➕ Adicionar Tarefa para ${dayText}/${monthText}`;
     
+    // Redireciona para a página de tarefas com a data
     addButton.onclick = () => {
         window.location.href = `tasks.html?date=${dateString}`;
     };
 
+    // Insere o botão antes da lista
     modalTaskList.insertAdjacentElement('beforebegin', addButton);
 
     if (tarefas.length === 0) {
@@ -216,30 +220,27 @@ function openDayDetails(dateString, dayText, monthText, tarefas) {
         tarefas.forEach(tarefa => {
             const taskItem = document.createElement('div');
             taskItem.classList.add('modal-task-item');
+            
+
             taskItem.innerHTML = `
                 <div>
                     <span class="task-time-text">${tarefa.hora || ''}</span> 
                     <span class="${tarefa.completa ? 'task-completed-text' : ''}">${tarefa.texto}</span>
                 </div>
                 <div>
-                    <button class="app-btn btn-small btn-toggle" data-id="${tarefa.id}" 
-                            style="background-color: ${tarefa.completa ? '#52c41a' : '#faad14'}; color: white;">
+                    <button class="app-btn btn-small" 
+                            style="background-color: ${tarefa.completa ? '#52c41a' : '#faad14'}; color: white;"
+                            onclick="handleTaskAction(${tarefa.id}, 'toggle')">
                         ${tarefa.completa ? 'Concluída' : 'Pendente'}
                     </button>
-                    <button class="app-btn btn-small btn-delete" data-id="${tarefa.id}" 
-                            style="background-color: #f5222d; color: white;">
+                    <button class="app-btn btn-small" 
+                            style="background-color: #f5222d; color: white;"
+                            onclick="handleTaskAction(${tarefa.id}, 'delete')">
                         🗑️
                     </button>
                 </div>
             `;
             modalTaskList.appendChild(taskItem);
-        });
-
-        modalTaskList.querySelectorAll('.btn-toggle').forEach(btn => {
-            btn.addEventListener('click', (e) => handleTaskAction(e.target.dataset.id, 'toggle', dateString));
-        });
-        modalTaskList.querySelectorAll('.btn-delete').forEach(btn => {
-            btn.addEventListener('click', (e) => handleTaskAction(e.target.dataset.id, 'delete', dateString));
         });
     }
 
