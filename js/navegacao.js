@@ -11,13 +11,13 @@ function handleNavigation(targetPage) {
 if (tasksButton) {
     tasksButton.addEventListener('click', () => {
       
-        handleNavigation('app/tasks.html'); 
+        handleNavigation('tasks.html'); 
     });
 }
 
 if (agendaButton) {
     agendaButton.addEventListener('click', () => {
-        handleNavigation('app/agenda.html'); 
+        handleNavigation('agenda.html'); 
     });
 }
 

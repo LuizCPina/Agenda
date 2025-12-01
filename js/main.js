@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const corpoPagina = document.body;  
 
         corpoPagina.addEventListener('click', () => {
-            window.location.href = 'app/tasks.html?';
+            window.location.href = 'app/tasks.html';
         });
     }
 
